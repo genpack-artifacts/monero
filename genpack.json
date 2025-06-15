@@ -1,0 +1,14 @@
+{
+	"name":"monero",
+	"packages":[
+		"genpack/paravirt", "net-dns/unbound", 
+		"dev-libs/boost", "net-libs/zeromq", 
+		"app-crypt/mit-krb5", "dev-libs/protobuf",
+		"dev-libs/libusb", "app-admin/logrotate",
+		"www-servers/nginx", "dev-db/lmdb"
+	],
+	"use":{
+		"app-misc/mime-types": "nginx"
+	},
+	"services":[]
+}
