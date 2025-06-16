@@ -11,6 +11,3 @@ LATEST_MONERO=$(curl -s https://api.github.com/repos/monero-project/monero/relea
 
 download "https://downloads.getmonero.org/cli/monero-linux-x64-${LATEST_MONERO}.tar.bz2" | tar jxvf - -C /tmp
 mv /tmp/monero-*/monerod /tmp/monero-*/monero-wallet-cli /tmp/monero-*/monero-blockchain-stats /usr/bin/
-
-download $(get-github-download-url SChernykh p2pool '.*-linux-x64\.tar\.gz$') | tar zxvf - -C /tmp
-mv /tmp/p2pool-*/p2pool /usr/bin/

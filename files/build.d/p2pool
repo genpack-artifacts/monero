@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+ARCH=$(uname -m)
+if [ "$ARCH" != "x86_64" ]; then
+    echo "Only x86_64 architecture is supported."
+    exit 1
+fi
+
+download $(get-github-download-url SChernykh p2pool '.*-linux-x64\.tar\.gz$') | tar zxvf - -C /tmp
+mv /tmp/p2pool-*/p2pool /usr/bin/
