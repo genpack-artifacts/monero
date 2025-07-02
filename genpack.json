@@ -10,5 +10,14 @@
 	"use":{
 		"app-misc/mime-types": "nginx"
 	},
+	"users":[
+		{
+			"name":"monero",
+			"uid":1000,
+			"home":"/var/lib/monero",
+			"shell":"/sbin/nologin",
+			"comment":"Monero Daemon User"
+		}
+	],
 	"services":[]
 }
