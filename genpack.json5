@@ -8,7 +8,8 @@
 		"www-servers/nginx", "dev-db/lmdb"
 	],
 	"use":{
-		"app-misc/mime-types": "nginx"
+		"app-misc/mime-types": "nginx",
+		"sys-apps/genpack-init": "exec-guard",
 	},
 	"users":[
 		{
