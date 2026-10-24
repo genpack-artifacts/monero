@@ -7,5 +7,19 @@ if [ "$ARCH" != "x86_64" ]; then
     exit 1
 fi
 
+rm -rf /tmp/p2pool-*
 download $(get-github-download-url SChernykh p2pool '.*-linux-x64\.tar\.gz$') | tar zxvf - -C /tmp
-mv /tmp/p2pool-*/p2pool /usr/bin/
+
+# Portage 外ソフトウェアなのでバージョンを /.genpack/ に記録する (owncloud, xmrig と同じ作法)。
+# リリース tarball のトップレベルディレクトリ名 (p2pool-v<ver>-linux-x64) がリリースバージョン。
+set -- /tmp/p2pool-*
+P2POOL_DIR=$1
+P2POOL_VERSION=${P2POOL_DIR##*/}
+P2POOL_VERSION=${P2POOL_VERSION#p2pool-}
+P2POOL_VERSION=${P2POOL_VERSION%%-*}
+P2POOL_VERSION=${P2POOL_VERSION#v}
+echo "p2pool ${P2POOL_VERSION}"
+
+mv "$P2POOL_DIR/p2pool" /usr/bin/
+mkdir -p /.genpack
+echo "$P2POOL_VERSION" > /.genpack/p2pool-version
